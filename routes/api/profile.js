@@ -56,7 +56,7 @@ router.post(
       facebook,
       instagram,
       twitter,
-      likedin,
+      linkedin,
     } = req.body;
 
     //Build profile object
@@ -72,9 +72,50 @@ router.post(
       profileFields.skills = skills.split(',').map((skill) => skill.trim());
     }
 
-    console.log(profileFields.skills);
-    res.send('Hello');
+    //Build social object
+    profileFields.social = {};
+    if (youtube) profileFields.social.youtube = youtube;
+    if (twitter) profileFields.social.twitter = twitter;
+    if (instagram) profileFields.social.instagram = instagram;
+    if (linkedin) profileFields.social.linkedin = linkedin;
+    if (facebook) profileFields.social.facebook = facebook;
+
+    try {
+      let profile = await Profile.findOne({ user: req.user.id });
+
+      if (profile) {
+        profile = await Profile.findOneAndUpdate(
+          { user: req.user.id },
+          { $set: profileFields },
+          { new: true }
+        );
+        return res.json(profile);
+      }
+
+      //Create profile
+
+      profile = new Profile(profileFields);
+      await profile.save();
+      res.json(profile);
+    } catch (error) {
+      console.error(error.message);
+      res.status(500).send('Server Eroor');
+    }
   }
 );
+
+//@route GET api/Profile
+//@desc get all profiles
+//@access Public
+
+router.get('/', async (req, res) => {
+  try {
+    const profiles = await Profile.find().populate('User', ['name', 'avatar']);
+    res.json(profiles);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send('Server Error');
+  }
+});
 
 module.exports = router;
