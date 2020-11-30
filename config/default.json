@@ -1,4 +1,6 @@
 {
-    "mongoURI": "mongodb+srv://anoopmern:anoopmern@mernapp.v63sh.mongodb.net/<dbname>?retryWrites=true&w=majority",
-    "jwtSecret": "mytokensecret"
+  "mongoURI": "mongodb+srv://anoopmern:anoopmern@mernapp.v63sh.mongodb.net/<dbname>?retryWrites=true&w=majority",
+  "jwtSecret": "mytokensecret",
+  "githubClientId": "a0558b2e49fa3fc36b6e",
+  "githubSecret": "4990ff972f8205d0d508a18fd78d4dd466c55f1d"
 }
