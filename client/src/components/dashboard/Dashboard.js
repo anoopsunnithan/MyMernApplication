@@ -13,7 +13,11 @@ const Dashboard = ({
     getCurrentProfile();
   }, []);
 
-  return loading && profile === null ? <Spinner /> : <Fragment>Test</Fragment>;
+  return (loading && profile) === null ? (
+    <Spinner />
+  ) : (
+    <Fragment>Test</Fragment>
+  );
 };
 
 Dashboard.propTypes = {

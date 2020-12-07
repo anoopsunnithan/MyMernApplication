@@ -14,11 +14,13 @@ export default function (state = initialState, action) {
 
   switch (type) {
     case GET_PROFILE:
-      return {
-        ...state,
-        payload: payload,
-        loading: false,
-      };
+      return [
+        {
+          ...state,
+          payload: payload,
+          loading: false,
+        },
+      ];
     case PROFILE_ERROR:
       return {
         ...state,

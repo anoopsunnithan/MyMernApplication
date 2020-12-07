@@ -7,6 +7,6 @@ export default () => {
       src={spinner}
       style={{ width: '200px', margin: 'auto', display: 'block' }}
       alt={'Loading...'}
-    ></img>
+    />
   </Fragment>;
 };
