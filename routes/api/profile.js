@@ -7,7 +7,7 @@ const { check, validationResult } = require('express-validator');
 const User = require('../../models/User');
 const Profile = require('../../models/Profile');
 
-//@route GET api/Profile/me
+//@route GET api/rofile/me
 //@desc Get current user profile
 //@access Private
 router.get('/me', auth, async (req, res) => {
@@ -17,7 +17,7 @@ router.get('/me', auth, async (req, res) => {
     }).populate('User', ['name', 'avatar']);
 
     if (!profile) {
-      return res.status(400).json({ msg: 'Ther is no profile for this user' });
+      return res.status(400).json({ msg: 'There is no profile for this user' });
     }
 
     res.json(profile);

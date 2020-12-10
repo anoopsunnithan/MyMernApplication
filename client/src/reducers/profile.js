@@ -16,6 +16,7 @@ export default function (state = initialState, action) {
     case GET_PROFILE:
       return {
         ...state,
+        profile: true,
         payload: payload,
         loading: false,
       };
