@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState, useReducer, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -29,7 +29,6 @@ const EditProfile = ({
 
   useEffect(() => {
     getCurrentProfile();
-
     setFormData({
       company: loading || !profile.company ? '' : profile.company,
       cwebsite: loading || !profile.website ? '' : profile.website,
@@ -45,7 +44,7 @@ const EditProfile = ({
       youtube: loading || !profile.youtube ? '' : profile.youtube,
       instagram: loading || !profile.instagram ? '' : profile.instagram,
     });
-  }, [loading]);
+  }, [loading, getCurrentProfile]);
 
   const {
     company,
