@@ -25,24 +25,29 @@ const EditProfile = ({
     instagram: '',
   });
 
+  const edit = true;
+
   const [displaySocialInputs, toggleSocialInputs] = useState(false);
 
   useEffect(() => {
     getCurrentProfile();
     setFormData({
       company: loading || !profile.company ? '' : profile.company,
-      cwebsite: loading || !profile.website ? '' : profile.website,
+      website: loading || !profile.website ? '' : profile.website,
       location: loading || !profile.location ? '' : profile.location,
       status: loading || !profile.status ? '' : profile.status,
       skills: loading || !profile.skills ? '' : profile.skills.join(','),
       githubusername:
         loading || !profile.githubusername ? '' : profile.githubusername,
       bio: loading || !profile.bio ? '' : profile.bio,
-      twiitter: loading || !profile.twiitter ? '' : profile.twiitter,
-      facebook: loading || !profile.facebook ? '' : profile.facebook,
-      linkedin: loading || !profile.linkedin ? '' : profile.linkedin,
-      youtube: loading || !profile.youtube ? '' : profile.youtube,
-      instagram: loading || !profile.instagram ? '' : profile.instagram,
+      twitter: loading || !profile.social.twitter ? '' : profile.social.twitter,
+      facebook:
+        loading || !profile.social.facebook ? '' : profile.social.facebook,
+      linkedin:
+        loading || !profile.social.linkedin ? '' : profile.social.linkedin,
+      youtube: loading || !profile.social.youtube ? '' : profile.social.youtube,
+      instagram:
+        loading || !profile.social.instagram ? '' : profile.social.instagram,
     });
   }, [loading, getCurrentProfile]);
 
@@ -66,14 +71,14 @@ const EditProfile = ({
 
   const onSubmit = (e) => {
     e.preventDefault();
-    createProfile(formData, history);
+    createProfile(formData, history, edit);
   };
 
   return (
     <Fragment>
       <h1 className='large text-primary'>Create Your Profile</h1>
       <p className='lead'>
-        <i className='fas fa-user'></i> Let's get some information to make your
+        <i className='fas fa-user'></i> Let/'s get some information to make your
         profile stand out
       </p>
       <small>* = required field</small>
