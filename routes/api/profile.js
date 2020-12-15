@@ -6,7 +6,7 @@ const auth = require('../../middleware/auth');
 const { check, validationResult } = require('express-validator');
 const User = require('../../models/User');
 const Profile = require('../../models/Profile');
-
+const Posts = require('../../models/Posts');
 //@route GET api/rofile/me
 //@desc Get current user profile
 //@access Private
