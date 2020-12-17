@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 
 const ProfileItem = ({
   profile: {
-    user: { id, name, avatar },
+    user: { _id, name, avatar },
+    status,
+    company,
+    location,
+    skills,
   },
-  status,
-  company,
-  location,
-  skills,
 }) => {
   return (
     <div className='profile bg-light'>
@@ -20,7 +20,7 @@ const ProfileItem = ({
           {status} {company && <span> at {company}</span>}
         </p>
         <p className='my-1'>{location && <span>{location}</span>}</p>
-        <Link to={`/profile/user/${id}`} className='btn btn-primary'>
+        <Link to={`/profile/user/${_id}`} className='btn btn-primary'>
           View Profile
         </Link>
       </div>

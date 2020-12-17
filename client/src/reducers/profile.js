@@ -50,7 +50,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         repos: payload,
-        loading: flase,
+        loading: false,
       };
     default:
       return state;
