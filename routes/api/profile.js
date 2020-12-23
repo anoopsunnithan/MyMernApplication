@@ -63,7 +63,6 @@ router.post(
     //Build profile object
     const profileFields = {};
     profileFields.user = req.user.id;
-    console.log(req.user.id);
     if (company) profileFields.company = company;
     if (website) profileFields.website = website;
     if (location) profileFields.location = location;
@@ -114,7 +113,7 @@ router.get('/', async (req, res) => {
     const profiles = await Profile.find().populate(
       'user',
       ['name', 'avatar'],
-      'User'
+      'user'
     );
     res.json(profiles);
   } catch (err) {
