@@ -63,6 +63,7 @@ router.post(
     //Build profile object
     const profileFields = {};
     profileFields.user = req.user.id;
+    profileFields.name = req.user.name;
     if (company) profileFields.company = company;
     if (website) profileFields.website = website;
     if (location) profileFields.location = location;
@@ -113,7 +114,7 @@ router.get('/', async (req, res) => {
     const profiles = await Profile.find().populate(
       'user',
       ['name', 'avatar'],
-      'user'
+      'User'
     );
     res.json(profiles);
   } catch (err) {
@@ -130,7 +131,7 @@ router.get('/user/:user_id', async (req, res) => {
   try {
     const profile = await Profile.findOne({
       user: req.params.user_id,
-    }).populate('User', ['name', 'avatar']);
+    }).populate('User', []);
 
     if (!profile) {
       return res.status(400).json({ msg: 'Profile not found' });
