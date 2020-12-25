@@ -8,7 +8,7 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
   useEffect(() => {
     getPosts();
   }, [getPosts]);
-  return <div>ba ba</div>;
+  return <div>ba</div>;
 };
 
 Posts.propTypes = {
