@@ -7,7 +7,7 @@ import { GET_POSTS, POST_ERROR } from './types';
 export const getPosts = () => async (dispatch) => {
   try {
     const res = await axios.get('/api/posts');
-
+    console.log('Hello');
     dispatch({
       type: GET_POSTS,
       payload: res.data,

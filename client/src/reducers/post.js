@@ -9,6 +9,7 @@ const initialState = {
 
 export default function (state = initialState, action) {
   const { type, payload } = action;
+  console.log(type);
   switch (type) {
     case GET_POSTS:
       return {

@@ -4,7 +4,7 @@ import { getPosts } from '../../actions/post';
 import Spinner from '../layout/Spinner';
 import PropTypes from 'prop-types';
 
-const Posts = ({ getPosts, post: { posts, loading } }) => {
+const Posts = ({ getPosts, posts: { post, loading } }) => {
   useEffect(() => {
     getPosts();
   }, [getPosts]);
@@ -13,10 +13,10 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
 
 Posts.propTypes = {
   getPosts: PropTypes.func.isRequired,
-  post: PropTypes.object.isRequired,
+  posts: PropTypes.object.isRequired,
 };
 const mapStateToProps = (state) => ({
-  post: state.post,
+  post: state.posts,
 });
 
 export default connect(mapStateToProps, { getPosts })(Posts);
