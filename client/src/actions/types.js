@@ -33,3 +33,5 @@ export const UPDATE_LIKES = 'UPDATE_LIKES';
 export const DELETE_POSTS = 'DELETE_POSTS';
 
 export const ADD_POST = 'ADD_POST';
+
+export const GET_POST = 'GET_POST';
