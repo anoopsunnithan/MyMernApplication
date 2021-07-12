@@ -1,4 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://anoopmern:anoopmern@mernapp.v63sh.mongodb.net/<dbname>?retryWrites=true&w=majority",
+  "mongoURI": "",
   "jwtSecret": "mytokensecret"
 }
